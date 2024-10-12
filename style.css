@@ -1,0 +1,119 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@media (orientation: landscape){
+    body{
+        background-color: gold;
+    }
+    #orient{
+        flex-direction: column;
+    }
+}
+@media (orientation: portrait){
+    body{
+        background-color: #fff;
+    }
+    #orient{
+        flex-direction: row;
+    }
+}
+#orient{
+    margin-top: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 1px solid #000;
+    display: flex;
+}
+#Box{
+    border: 1px solid #000;
+    padding: 5px;
+}
+#out{
+    background-color: blue;
+    width: 300px;
+    aspect-ratio: 1;
+    position: sticky;
+    inset: 20px;
+}
+#parent{
+    background-color: pink;
+    border: 1px solid #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    /* width: max(50%, 300px);
+    padding: min(50%, 400px); */
+    box-sizing: border-box;
+    width: clamp(350px, 50%, 500px);
+    font-size: clamp(16px, 5vw, 30px);
+}
+#me p{
+    &::first-letter{
+        color: green;
+        font-weight: bold;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        initial-letter: 3 3;
+    }
+}
+ul{
+    & li{
+        list-style: none;
+        & a{
+            text-decoration: none;
+            &:hover{
+                color: red;
+            }
+        }
+    }
+}
+#f1 > p{
+    background-color: gold;
+}
+#f1:has(h2) span{
+        font-size: 30px;
+        color: purple;
+        font-family: Arial, Helvetica, sans-serif;
+}
+#f1:has(> h2){
+    background-color: aqua;
+}
+#id{
+    border: 1px solid #000;
+    width: 200px;
+    aspect-ratio: 1;
+    hyphens:manual;
+    hyphenate-character: '$';
+    hyphenate-limit-chars: 15;
+}
+img{
+    width: 700px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    clip-path: inset(15% 25% 30% 10%);
+    /* object-view-box: inset(15% 25% 30% 10%); */
+    
+
+}
+@media print{
+    @page{
+        margin: 1in;
+    }
+    div > h2.ehm{
+        break-before: page;
+    }
+    body{
+        background-color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #orient, #parent{
+        border: 0px solid black;
+    }
+    div > p{
+        color: red;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        text-decoration: underline;
+        line-height: 40px;
+    }
+}
